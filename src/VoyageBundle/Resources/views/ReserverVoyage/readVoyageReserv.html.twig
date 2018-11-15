@@ -1,0 +1,96 @@
+<center>
+    <h2>
+        Liste des voyages
+    </h2>
+    <form method="get">
+    <table border="2">
+        <tr>
+            <th>
+                Id_Voyage
+            </th>
+            <th>
+                Destination
+            </th>
+            <th>
+                Depart
+            </th>
+            <th>
+                Date départ
+            </th>
+            <th>
+                Date retour
+            </th>
+            <th>
+                Heure départ/Aller
+            </th>
+            <th>
+                Heure arrivée/Aller
+            </th>
+            <th>
+                Heure départ/Retour
+            </th>
+            <th>
+                Heure arrivée/Retour
+            </th>
+            <th>
+                Nombre de place disponible
+            </th>
+            <th>
+                Compagnie
+            </th>
+            <th>
+                Prix
+            </th>
+            <th>
+                Num de vol
+            </th>
+        </tr>
+        {% for v in list %}
+        <tr>
+
+            <td>
+                {{ v.idVoyage }}
+            </td>
+            <td>
+                {{ v.destinationVoyage }}
+            </td>
+            <td>
+                {{ v.departVoyage }}
+            </td>
+            <td>
+                {{ v.dateVoyageAller|date }}
+            </td>
+            <td>
+                {{ v.dateVoyageRetour|date }}
+            </td>
+            <td>
+                {{ v.hdepartVoyageAller|date }}
+            </td>
+            <td>
+                {{ v.harriveeVoyageAller|date }}
+            </td>
+            <td>
+                {{ v.hdepartVoyageRetour|date }}
+
+            </td>
+            <td>
+                {{ v.harriveeVoyageRetour|date }}
+            </td>
+            <td>
+                {{ v.nbPlaceDispo }}
+            </td>
+            <td>
+                {{ v.compagnie }}
+            </td>
+            <td>
+                {{v.prix  }}
+            </td>
+            <td>
+                {{ v.num }}
+            </td>
+            <td><a href="{{ path('voyage_resever',{"id":v.idVoyage})}}">Reserver</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</center>
